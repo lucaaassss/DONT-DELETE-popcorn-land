@@ -16,7 +16,7 @@ const App = () => {
     setMovies(data.Search); //pass data search tu ke setMovies
   };
   useEffect(() => {
-    searchMovies("Spiderman");
+    searchMovies("Batman");
   }, []);
 
   return (
@@ -30,6 +30,12 @@ const App = () => {
           placeholder="Search for movies"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
+          onKeyDown={(event) => {
+            //allowing user to use the "Enter" button
+            if (event.key === "Enter") {
+              searchMovies(searchTerm);
+            }
+          }}
         />
         {/* Input field for entering a search term */}
         <img
